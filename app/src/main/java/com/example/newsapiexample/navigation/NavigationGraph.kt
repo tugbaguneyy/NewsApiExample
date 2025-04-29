@@ -7,6 +7,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import com.example.newsapiexample.presentation.HomeScreen
 
 
 @Composable
@@ -20,6 +22,8 @@ fun NavigationGraph(
         navController = navController,
         startDestination = startDestination,
     ) {
-
+        composable<Screen.Home> {
+            HomeScreen()
+        }
     }
 }
