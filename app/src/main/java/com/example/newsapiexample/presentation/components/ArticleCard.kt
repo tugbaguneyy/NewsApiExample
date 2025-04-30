@@ -1,4 +1,4 @@
-package com.example.newsapiexample.presentation
+package com.example.newsapiexample.presentation.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Card

@@ -9,7 +9,7 @@ class TopHeadlinesUseCase @Inject constructor(
 private val newsApiRepositoryImpl: NewsApiRepositoryImpl
 )
 {
-    operator fun invoke() : Flow<Root>{
-        return newsApiRepositoryImpl.topHeadlines()
+    operator fun invoke(category: String) : Flow<Root>{
+        return newsApiRepositoryImpl.topHeadlines(category)
     }
 }

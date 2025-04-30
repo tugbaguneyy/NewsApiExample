@@ -26,9 +26,10 @@ class HomeViewModel @Inject constructor(
         get() = _topHeadlines
 
     init {
+        //getEverything()
         topHeadlines()
     }
-    private fun getEverything(){
+     private fun getEverything(){
         viewModelScope.launch {
             getEverythingUseCase.invoke().collect{
                 _allArticles.value=it.articles
@@ -36,10 +37,9 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun topHeadlines(){
+    fun topHeadlines(category: String = ""){
         viewModelScope.launch {
-            topHeadlinesUseCase.invoke().collect{
-                Log.d("TopHeadlines", "Articles count: ${it.articles.size}")
+            topHeadlinesUseCase.invoke(category).collect{
                 _topHeadlines.value = it.articles
             }
         }
