@@ -1,5 +1,6 @@
 package com.example.newsapiexample.presentation.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
@@ -15,12 +16,14 @@ import com.example.newsapiexample.domain.model.Article
 
 @Composable
 fun ArticleCard(
-    article: Article
+    article: Article,
+    onClick: () -> Unit
 ) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
+            .clickable { onClick() }
     ) {
         Column(
             modifier = Modifier.padding(16.dp)

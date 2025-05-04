@@ -25,10 +25,12 @@ class HomeViewModel @Inject constructor(
     val topHeadlines : StateFlow<List<Article>>
         get() = _topHeadlines
 
+
     init {
         //getEverything()
         topHeadlines()
     }
+
      private fun getEverything(){
         viewModelScope.launch {
             getEverythingUseCase.invoke().collect{

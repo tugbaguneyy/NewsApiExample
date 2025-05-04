@@ -10,17 +10,21 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavController
+import com.example.newsapiexample.navigation.Screen
 import com.example.newsapiexample.presentation.components.ArticleCard
 import com.example.newsapiexample.presentation.components.CategoryLazyRow
 
 @Composable
-fun HomeScreen(){
+fun HomeScreen(navController: NavController){
 
     val viewModel= hiltViewModel<HomeViewModel>()
     //val everythingArticles=viewModel.allArticles.collectAsStateWithLifecycle()
     val topHeadlineArticles=viewModel.topHeadlines.collectAsStateWithLifecycle()
 
     var selectedCategory by remember { mutableStateOf("general") }
+
+
 
     // Kategori değiştiğinde ilgili haberleri yükle
     LaunchedEffect(selectedCategory) {
@@ -35,7 +39,8 @@ fun HomeScreen(){
         LazyColumn(
             content = {
                 items(topHeadlineArticles.value.size){
-                    ArticleCard(topHeadlineArticles.value[it])
+                    ArticleCard(topHeadlineArticles.value[it],
+                        { navController.navigate(Screen.Detail) })
                 }
             }
         )

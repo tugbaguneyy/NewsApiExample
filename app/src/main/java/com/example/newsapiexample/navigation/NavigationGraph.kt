@@ -1,14 +1,12 @@
 package com.example.newsapiexample.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.newsapiexample.presentation.HomeScreen
+import com.example.newsapiexample.presentation.detail.DetailScreen
 
 
 @Composable
@@ -23,7 +21,11 @@ fun NavigationGraph(
         startDestination = startDestination,
     ) {
         composable<Screen.Home> {
-            HomeScreen()
+            HomeScreen(navController)
+        }
+
+        composable<Screen.Detail> {
+            DetailScreen(navController)
         }
     }
 }
