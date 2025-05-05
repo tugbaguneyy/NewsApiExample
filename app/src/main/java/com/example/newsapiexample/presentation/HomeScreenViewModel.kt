@@ -1,6 +1,5 @@
 package com.example.newsapiexample.presentation
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.newsapiexample.domain.model.Article

@@ -3,6 +3,7 @@ package com.example.newsapiexample.di
 import com.example.newsapiexample.data.remote.NewsApi
 import com.example.newsapiexample.data.repository.NewsApiRepositoryImpl
 import com.example.newsapiexample.domain.usecase.GetEverythingUseCase
+import com.example.newsapiexample.domain.usecase.TopHeadlinesUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -55,6 +56,12 @@ object NetworkModule {
     @Singleton
     fun provideGetEverythingUseCase(newsApiRepositoryImpl: NewsApiRepositoryImpl) : GetEverythingUseCase {
         return GetEverythingUseCase(newsApiRepositoryImpl)
+    }
+
+    @Provides
+    @Singleton
+    fun provideTopHeadlinesUseCase(newsApiRepositoryImpl: NewsApiRepositoryImpl) : TopHeadlinesUseCase {
+        return TopHeadlinesUseCase(newsApiRepositoryImpl)
     }
 
 
