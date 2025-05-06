@@ -2,6 +2,7 @@ package com.example.newsapiexample.presentation
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -14,9 +15,10 @@ import androidx.navigation.NavController
 import com.example.newsapiexample.navigation.Screen
 import com.example.newsapiexample.presentation.components.ArticleCard
 import com.example.newsapiexample.presentation.components.CategoryLazyRow
+import com.example.newsapiexample.ui.SharedViewModel
 
 @Composable
-fun HomeScreen(navController: NavController){
+fun HomeScreen(navController: NavController, sharedViewModel: SharedViewModel){
 
     val viewModel= hiltViewModel<HomeViewModel>()
     //val everythingArticles=viewModel.allArticles.collectAsStateWithLifecycle()
@@ -36,14 +38,17 @@ fun HomeScreen(navController: NavController){
             selectedCategory,
             onCategorySelected = { selectedCategory = it }
         )
-        LazyColumn(
-            content = {
-                items(topHeadlineArticles.value.size){
-                    ArticleCard(topHeadlineArticles.value[it],
-                        { navController.navigate(Screen.Detail) })
-                }
+        LazyColumn {
+            items(topHeadlineArticles.value) { article ->
+                ArticleCard(
+                    article = article,
+                    onClick = {
+                        sharedViewModel.selectArticle(article)
+                        navController.navigate(Screen.Detail)
+                    }
+                )
             }
-        )
+        }
 
 }
 }

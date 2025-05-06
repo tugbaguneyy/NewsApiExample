@@ -19,6 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -37,6 +38,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MyappTheme {
+                val sharedViewModel: SharedViewModel = hiltViewModel()
+
                 val navController = rememberNavController()
                 val startDestination = Screen.Home
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -99,6 +102,7 @@ class MainActivity : ComponentActivity() {
                     NavigationGraph(
                         navController = navController,
                         startDestination = startDestination,
+                        sharedViewModel = sharedViewModel,
                         modifier = Modifier.padding(innerPadding)
                     )
                 }

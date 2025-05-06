@@ -7,13 +7,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.newsapiexample.presentation.HomeScreen
 import com.example.newsapiexample.presentation.detail.DetailScreen
+import com.example.newsapiexample.ui.SharedViewModel
 
 
 @Composable
 fun NavigationGraph(
     navController: NavHostController,
     startDestination: Screen,
-    modifier: Modifier = Modifier,
+    sharedViewModel: SharedViewModel,
+    modifier: Modifier = Modifier
 ) {
     NavHost(
         modifier = modifier,
@@ -21,11 +23,11 @@ fun NavigationGraph(
         startDestination = startDestination,
     ) {
         composable<Screen.Home> {
-            HomeScreen(navController)
+            HomeScreen(navController,sharedViewModel)
         }
 
         composable<Screen.Detail> {
-            DetailScreen(navController)
+            DetailScreen(navController,sharedViewModel)
         }
     }
 }

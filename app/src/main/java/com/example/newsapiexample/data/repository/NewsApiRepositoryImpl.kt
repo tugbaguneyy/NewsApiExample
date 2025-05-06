@@ -4,7 +4,6 @@ import com.example.newsapiexample.data.remote.NewsApi
 import com.example.newsapiexample.domain.model.Root
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import retrofit2.http.Query
 import javax.inject.Inject
 
 class NewsApiRepositoryImpl @Inject constructor(
