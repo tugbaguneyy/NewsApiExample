@@ -13,6 +13,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.example.newsapiexample.domain.model.Article
+import com.example.newsapiexample.utils.formatDate
 
 @Composable
 fun ArticleCard(
@@ -69,7 +70,7 @@ fun ArticleCard(
                 )
 
                 Text(
-                    text = article.publishedAt,
+                    text = article.publishedAt.formatDate(),
                     style = MaterialTheme.typography.labelMedium
                 )
             }
