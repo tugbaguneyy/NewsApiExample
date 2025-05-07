@@ -52,7 +52,7 @@ fun DetailScreen(
         return
     }
 
-    ArticleDetailContent(article = article, navController = navController)
+    ArticleDetailContent(article = article)
 }
 
 
