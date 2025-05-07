@@ -9,8 +9,8 @@ import javax.inject.Inject
 class GetEverythingUseCase @Inject constructor(
     private val newsApiRepositoryImpl: NewsApiRepositoryImpl
 ){
-    operator fun invoke() : Flow<Root> = flow{
-        newsApiRepositoryImpl.getEverything().collect{
+    operator fun invoke(query: String) : Flow<Root> = flow {
+        newsApiRepositoryImpl.getEverything(query = query).collect {
             emit(it)
         }
     }

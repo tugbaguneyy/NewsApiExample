@@ -8,4 +8,7 @@ sealed interface Screen {
 
     @Serializable
     data object Detail : Screen
+
+    @Serializable
+    data object Search : Screen
 }

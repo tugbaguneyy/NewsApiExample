@@ -56,6 +56,7 @@ class MainActivity : ComponentActivity() {
                             val title = when {
                                 isCurrentScreen(Screen.Home::class) -> "Home Screen"
                                 isCurrentScreen(Screen.Detail::class) -> "Details"
+                                isCurrentScreen(Screen.Search::class) -> "Search"
                                 // Uygulamanızdaki diğer ekranları buraya ekleyebilirsiniz
                                 else -> "Not Found"
                             }
@@ -80,7 +81,9 @@ class MainActivity : ComponentActivity() {
                                 },
                                 actions = {
                                     if (isCurrentScreen(Screen.Home::class)) {
-                                        IconButton(onClick = { /* Search action */ }) {
+                                        IconButton(onClick = {
+                                            navController.navigate(Screen.Search)
+                                        }) {
                                             Icon(
                                                 imageVector = Icons.Default.Search,
                                                 contentDescription = "Search"

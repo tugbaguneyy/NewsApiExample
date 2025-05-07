@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.newsapiexample.presentation.HomeScreen
 import com.example.newsapiexample.presentation.detail.DetailScreen
+import com.example.newsapiexample.presentation.search.SearchScreen
 import com.example.newsapiexample.ui.SharedViewModel
 
 
@@ -28,6 +29,10 @@ fun NavigationGraph(
 
         composable<Screen.Detail> {
             DetailScreen(navController,sharedViewModel)
+        }
+
+        composable<Screen.Search> {
+            SearchScreen()
         }
     }
 }

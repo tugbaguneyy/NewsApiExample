@@ -9,8 +9,8 @@ import javax.inject.Inject
 class NewsApiRepositoryImpl @Inject constructor(
     private val newsApi : NewsApi
 ){
-    fun getEverything() : Flow<Root> = flow {
-        val data = newsApi.getEverything()
+    fun getEverything(query: String) : Flow<Root> = flow {
+        val data = newsApi.getEverything(query = query)
         emit(data)
     }
 
