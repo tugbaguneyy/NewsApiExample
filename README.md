@@ -3,14 +3,16 @@
 A dynamic news application built using Jetpack Compose and MVVM architecture. Users can browse the latest headlines by category, view detailed news articles, and search in real time.
 
 ## 🛠 Technologies Used
-
 - **Jetpack Compose**
 - **MVVM Architecture**
-- **Retrofit (News API Integration)**
+-  **Retrofit (News API Integration)**
 - **Hilt (Dependency Injection)**
-- **Navigation Component**
+- **Kotlin Coroutines**
 - **StateFlow**
+- **Coil (Image Loading)**
+- **Navigation Component**
 - **Material 3 Design**
+- **Clean Architecture with UseCases**
 
 ## 🌍 Features
 
