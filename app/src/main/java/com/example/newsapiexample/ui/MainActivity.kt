@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize(),
                     topBar = {
                             val title = when {
-                                isCurrentScreen(Screen.Home::class) -> "Home Screen"
+                                isCurrentScreen(Screen.Home::class) -> "News App"
                                 isCurrentScreen(Screen.Detail::class) -> "Details"
                                 isCurrentScreen(Screen.Search::class) -> "Search"
                                 // Uygulamanızdaki diğer ekranları buraya ekleyebilirsiniz
